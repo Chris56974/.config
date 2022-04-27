@@ -71,5 +71,3 @@ though until I run the fc-cache command down below.
 fc-list # show all system fonts
 sudo fc-cache -fv # search in font directories and add fonts
 ```
-
-https://github.com/Allaman/nvim
