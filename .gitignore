@@ -2,6 +2,7 @@
 * 
 
 # Except these files/folders
+!alacritty
 !alacritty/*
 !zathura/*
 !i3/*
