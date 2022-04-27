@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# https://unix.stackexchange.com/questions/437809
+
+# When you login, your zshrc profile runs startx
+# and that runs xinit which uses this file
+
+# the purpose of xinitrc is to start the GUI (DWM)
+# and set some GUI related settings like keybindings,
+# or X resources (with xrdb). I do that by sourcing
+# my xprofile which I do below.
+
+
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+  . "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+  . "$HOME/.xprofile"
+fi
+
+ssh-agent dwm

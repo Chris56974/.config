@@ -1,0 +1,58 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# sudo not required for some system commands
+for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
+	alias $command="sudo $command"
+done; unset command
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+  cd="z" \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="shutdown -h now" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="pacman" \
+	xi="sudo xbps-install" \
+	xr="sudo xbps-remove -R" \
+	xq="xbps-query" \
+
+alias \
+  lf="lfub" \
+	magit="nvim -c MagitOnly" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+
+alias setdisplay="nvidia-settings --assign \"CurrentMetaMode=DPY-2: nvidia-auto-select @3840x2160
+  +2160+0 {ViewPortIn=3840x2160,
+  ViewPortOut=3840x2160+0+0}, DPY-1:
+  nvidia-auto-select @2160x3840 +0+0
+  {ViewPortIn=2160x3840,
+  ViewPortOut=3840x2160+0+0, Rotation=90}\""
