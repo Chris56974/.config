@@ -2,11 +2,11 @@
 * 
 
 # Except these files/folders
-!/alacritty/*
-!/zathura/*
-!/i3/*
-!/lf/*
-!/zsh/*
-!/shell/*
-!/x11/*
+!./alacritty/*
+!./zathura/*
+!./i3/*
+!./lf/*
+!./zsh/*
+!./shell/*
+!./x11/*
 !.gitignore
