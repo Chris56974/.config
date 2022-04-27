@@ -3,17 +3,13 @@
 # This file runs whenever a DM (Desktop Manager) logs you into a graphical session.
 # This file is also sourced in startx/xinit
 
-# Run the "set background" script in the background
-setbg &
+setbg & # Run the "set background" script in the background
 
-# xrandr --scale 2x2 shrinks it in half
-# I used to do that for my 1080p monitor
+# xrandr --scale 2x2   # shrinks it in half
+# xrandr --dpi 96      # DPI for 1080p monitors
+# xrandr --output XXXX # select a monitor by cable
 
-# xrandr --dpi 96 is for 1080p monitors
-# double it for 4k monitors
-
-# xrandr --output XXXX select a monitor by cable
-xrandr --dpi 192 --output HDMI-0 --rotate left --left-of DP-0
+xrandr --dpi 192 --output HDMI-0 --rotate left --left-of DP-0  
 
 # xrdb is the x server resource database
 # This line lets you use Xresources colors/settings on startup
